@@ -1,0 +1,12 @@
+com\winj\javalin\Pac4jConfig.class
+com\winj\javalin\BasicAuthenticator.class
+com\winj\model\Customer.class
+com\winj\javalin\HttpActionAdapter.class
+com\winj\model\finder\CustomerFinder.class
+com\winj\javalin\App.class
+com\winj\javalin\CustomerController.class
+com\winj\javalin\EbeanConfig.class
+com\winj\model\query\QCustomer.class
+com\winj\service\CustomerService.class
+com\winj\model\query\assoc\QAssocCustomer.class
+com\winj\service\AuthService.class
