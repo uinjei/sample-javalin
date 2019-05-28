@@ -1,3 +1,0 @@
-entity-packages: com.winj.model
-transactional-packages: com.winj.trans
-querybean-packages: org.winj
