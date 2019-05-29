@@ -103,6 +103,23 @@
 					<mainClass>com.winj.javalin.App</mainClass>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.winj</groupId>
+				<artifactId>generate-querybean-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+					<destPackage>com.winj.model.query</destPackage>
+					<entityBeanPackage>com.winj.model</entityBeanPackage>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>

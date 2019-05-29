@@ -8,8 +8,6 @@ import static io.javalin.apibuilder.ApiBuilder.post;
 import java.util.Map;
 
 import org.pac4j.javalin.SecurityHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.winj.javalin.controller.CustomerController;
 
@@ -22,17 +20,15 @@ import io.javalin.NotFoundResponse;
  */
 public class App {
 	
-	private static Logger log = LoggerFactory.getLogger(App.class);
-	
 	public static void main(String[] args) {
 		
 		final var salt = "12345678901234567890123456789012";
 		var config = new Pac4jConfig(salt).build();
 		
-		/** ebean bootstrap */
-		EbeanConfig.configure();
+		/** bootstrap */
+		new EbeanBootstrap();
 		
-        Javalin.create()
+        var app = Javalin.create()
         	.port(7000)
         	.routes(() -> {
         		
@@ -48,7 +44,7 @@ public class App {
         		ctx.json(Map.of("status", e.getStatus(), "error", e.getMessage())))
         	.start();
         
-        
-        
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> app.stop()));
+
     }
 }
